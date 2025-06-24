@@ -1,0 +1,3 @@
+# README
+
+My first java project, I dont know how to setup a build properly so, heres what was in intellij...
