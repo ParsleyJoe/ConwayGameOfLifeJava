@@ -18,7 +18,7 @@ public class Main {
         while (true)
         {
             PrintGrid(grid);
-            CheckNeighbours(grid);
+            CheckNeighbours(grid); // All the rules are checked here.
 
             input = scanner.nextLine();
             if (input.equalsIgnoreCase("q"))
@@ -64,6 +64,7 @@ public class Main {
         }
     }
 
+    // The function to count neighbours
     public static int countLiveNeighbors(int i, int j, int[][] grid) {
         int count = 0;
         int rows = grid.length;
@@ -84,23 +85,22 @@ public class Main {
     }
 
 
+    /// Helper functions for rules
     // Dead cell has exactly 3 live neighbours, it is resurrected
-    public static boolean CheckReproduction(int i, int j, int[][] grid)
-    {
+    public static boolean CheckReproduction(int i, int j, int[][] grid) {
         return countLiveNeighbors(i, j, grid) == 3;
     }
-
     public static boolean CheckOverpopulation(int i, int j, int[][] grid)
     {
         return countLiveNeighbors(i, j, grid) >= 4;
     }
-
     // Check if 1st rule: Underpopulation, if has less than 2 neighbours
     public static boolean CheckUnderpopulation(int i, int j, int[][] grid)
     {
         return countLiveNeighbors(i, j, grid) < 2;
     }
 
+    // Simple printing function
     public static void PrintGrid(int[][] grid)
     {
         for (int i = 0; i < grid.length; i++)
